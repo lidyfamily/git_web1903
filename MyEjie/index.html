@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>E洁家政客服</title>
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
+	<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/5.10.2/css/all.css">
+	<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+	<script type="text/javascript" src="./js/bootstrap.js"></script>
+	<style type="text/css">
+		.content{
+			position: absolute;
+			width: 100%;
+			top:0;
+			bottom: 0;
+		}
+		.box,.ul>li{
+			color: #fff;
+			border-bottom: 1px solid #ccc;
+		}
+		.ul>li>span{
+			color: #fff;
+		}
+		.ul>li>span:hover{
+			color: #fff;
+		}
+		.col-10>#nr_nav{
+			border-bottom: 2px solid #ccc;
+		}
+		.current{
+			background-color: #000;
+		}
+	</style>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row content">
+			<div class="col-2 bg-dark">
+				<div class="text-center py-4 box">
+					<i class="fa fa-star pr-2"></i>
+					<span class="h3">E 洁家政</span>
+					<i class="fa fa-star pl-2"></i>
+				</div>
+				<ul class="list-unstyled text-center ul">
+					<li class="py-3" url="./pages/customer.html">
+						<span class="btn" value="cuetomer">
+							<i class="fa fa-user pr-2"></i>
+							顾客管理
+						</span>
+					</li>
+					<li class="py-3" url="./pages/waiter.html">
+						<span class="btn" value="waiter">
+							<i class="fa fa-address-card pr-2"></i>
+							员工管理
+						</span>
+					</li>
+					<li class="py-3" url="./pages/product.html">
+						<span class="btn" value="product">
+							<i class="fa fa-qrcode pr-2"></i>
+							产品管理
+						</span>
+					</li>
+					<li class="py-3" url="./pages/address.html">
+						<span class="btn" value="product">
+							<i class="fa fa-qrcode pr-2"></i>
+							地址管理
+						</span>
+					</li>
+					<!-- <li class="py-3" url="./pages/order.html">
+						<span class="btn" value="order">
+							<i class="fa fa-cart-plus pr-2"></i>
+							订单管理
+						</span>
+					</li> -->
+					<li class="py-3" url="./pages/category.html">
+						<span class="btn" value="category">
+							<i class="fa fa-database pr-2"></i>
+							分类管理
+						</span>
+					</li>
+					<li class="py-3" url="./pages/comment.html">
+						<span class="btn" value="comment">
+							<i class="fa fa-comments pr-2"></i>
+							评论管理
+						</span>
+					</li>
+				</ul>
+			</div>
+			<div class="col-10 right">
+				<div id="nr_nav" class="py-4 pl-3 h5">
+					<strong>个人主页</strong>
+					<i class="fa fa-angle-double-right px-2"></i>
+					<span></span>
+				</div>
+				<div id="wrapper"></div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			// 为导航添加事件
+			$("ul.ul").on("click","li",function(){
+				var url = $(this).attr("url");
+				var page = $(this).text().trim();
+				$("ul.ul > li").removeClass("current");
+				$(this).addClass("current");
+				$("#nr_nav > span").text(page);
+				$("#wrapper").load(url);
+				
+			})
+			// 模拟点击第一个li
+			$("ul.ul > li:first-child").trigger("click");
+			
+		});
+	</script>
+</body>
+</html>
